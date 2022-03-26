@@ -122,8 +122,10 @@ TEST(Orlov_Maksim_ComplexNumberTest, can_divide) {
     ComplexNumber res = z1 / z2;
 
     // Assert
-    EXPECT_NEAR((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2), res.getRe(), 0.01);
-    EXPECT_NEAR((im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2), res.getIm(), 0.01);
+    EXPECT_NEAR((re1 * re2 + im1 * im2) / (re2 * re2 + im2 * im2),
+        res.getRe(), 0.01);
+    EXPECT_NEAR((im1 * re2 - re1 * im2) / (re2 * re2 + im2 * im2),
+        res.getIm(), 0.01);
 }
 
 TEST(Orlov_Maksim_ComplexNumberTest, can_test_equality) {
@@ -147,11 +149,11 @@ TEST(Orlov_Maksim_ComplexNumberTest, can_test_inequality) {
     double im1 = 4.0;
     double re2 = -1.0;
     double im2 = 2.5;
-    
+
     // Act
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
-    
+
     // Assert
     ASSERT_TRUE(z1 != z2);
 }
