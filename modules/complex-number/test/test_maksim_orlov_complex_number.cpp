@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
-
+/*
 TEST(Orlov_Maksim_ComplexNumberTest, can_create_zero) {
     // Arrange
     double re = 0.0;
@@ -74,7 +74,7 @@ TEST(Orlov_Maksim_ComplexNumberTest, can_add) {
     EXPECT_NEAR(re1 + re2, res.getRe(), 0.01);
     EXPECT_NEAR(im1 + im2, res.getIm(), 0.01);
 }
-
+*/
 TEST(Orlov_Maksim_ComplexNumberTest, can_subtract) {
     // Arrange
     double re1 = 3.0;
