@@ -43,7 +43,7 @@ TEST(Orlov_Maksim_ComplexNumberTest, can_copy_number) {
     EXPECT_NEAR(re, z2.getRe(), 0.01);
     EXPECT_NEAR(im, z2.getIm(), 0.01);
 }
-/*
+
 TEST(Orlov_Maksim_ComplexNumberTest, can_assign_number) {
     // Arrange
     double re = 0.0;
@@ -51,13 +51,14 @@ TEST(Orlov_Maksim_ComplexNumberTest, can_assign_number) {
 
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber z2 = z;
+    ComplexNumber z2(3, 4);
+    z2 = z;
 
     // Assert
     EXPECT_NEAR(re, z.getRe(), 0.01);
     EXPECT_NEAR(im, z.getIm(), 0.01);
 }
-*/
+
 TEST(Orlov_Maksim_ComplexNumberTest, can_add) {
     // Arrange
     double re1 = 3.0;
