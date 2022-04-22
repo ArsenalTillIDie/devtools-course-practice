@@ -5,9 +5,7 @@
 
 #include <vector>
 
-// @codeCoverageIgnoreStart
 class Vector {
-// @codeCoverageIgnoreEnd
     // Why does it want me to cover the bloody class declaration?
  private:
      std::vector<float> data;
