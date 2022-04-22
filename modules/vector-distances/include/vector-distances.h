@@ -8,13 +8,14 @@
 class Vector {
  private:
      std::vector<float> data;
+     void unusedFunctions(); // Style guides are nonsense
  public:
      Vector(std::vector<float> _data);
-     Vector(const Vector& v);
+     explicit Vector(const Vector& v);
      void setData(std::vector<float> v);
      std::vector<float> getData();
      float Linf(Vector v);
-     float L(int p, Vector v);
+     float L(int p, Vector v); // Calculates distance according to L_p norm
 };
 
 #endif

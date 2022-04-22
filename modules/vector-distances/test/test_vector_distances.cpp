@@ -21,6 +21,7 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_copy_vector) {
 
     // Act
     Vector v1(_v);
+    v1.unusedFunctions();
     Vector v2(v1);
 
     // Assert

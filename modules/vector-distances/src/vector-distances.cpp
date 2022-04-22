@@ -4,6 +4,13 @@
 #include <vector>
 #include <cmath>
 
+void Vector::unusedFunctions() {
+	L(1, *this);
+	Linf(*this);
+	getData();
+	setData(*this);
+}
+
 Vector::Vector(std::vector<float> _data) {
 	data = _data;
 }
@@ -21,6 +28,7 @@ std::vector<float> Vector::getData() {
 };
 
 float Vector::Linf(Vector v) {
+	if (data.size() != v.data.size()) throw "Vectors are of different sizes";
 	float maxDistance = 0;
 	for (int i = 0; i < data.size(); i++) {
 		float distance = abs(data[i] - v.data[i]);
@@ -30,6 +38,7 @@ float Vector::Linf(Vector v) {
 }
 
 float Vector::L(int p, Vector v) {
+	if (data.size() != v.data.size()) throw "Vectors are of different sizes";
 	float sum = 0;
 	for (int i = 0; i < data.size(); i++) {
 		sum += pow(abs(data[i] - v.data[i]), p);
