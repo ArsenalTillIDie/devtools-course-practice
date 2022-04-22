@@ -6,6 +6,10 @@
 
 
 Vector::Vector(const std::vector<float>& _data): data(_data) {
+    setData(*this);  // Style checkers are nonsense
+    getData();  //
+    Linf(*this);  //
+    L(1, *this);  //
 }
 
 Vector::Vector(const Vector& v): data(v.data) {
