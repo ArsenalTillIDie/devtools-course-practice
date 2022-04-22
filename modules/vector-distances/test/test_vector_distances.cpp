@@ -64,6 +64,17 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_assign_vector) {
     }
 }
 
+TEST(Orlov_Maksim_VectorDistanceTest, cant_calculate_Linf_distance_between_vectors_of_different_sizes) {
+    // Arrange
+    std::vector<float> _v1 = { 1.0, 2.0, 3.0, 4.0 };
+    std::vector<float> _v2 = { 1.0, 2.0, 3.0 };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.Linf(v2));
+}
+
 TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
     // Arrange
     std::vector<float> _v1 = { 1.0, 2.0, 3.0 };
@@ -91,6 +102,17 @@ TEST(Orlov_Maksim_VectorDistanceTest, Linf) {
 
     // Assert
     EXPECT_NEAR(3.0, res, 0.01);
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest, cant_calculate_Lp_distance_between_vectors_of_different_sizes) {
+    // Arrange
+    std::vector<float> _v1 = { 1.0, 2.0, 3.0, 4.0 };
+    std::vector<float> _v2 = { 1.0, 2.0, 3.0 };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.L(1, v2));
 }
 
 TEST(Orlov_Maksim_VectorDistanceTest, L1_equal) {
