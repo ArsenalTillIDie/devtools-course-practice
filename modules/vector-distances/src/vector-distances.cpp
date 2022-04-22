@@ -4,21 +4,14 @@
 #include <vector>
 #include <cmath>
 
-void Vector::unusedFunctions() {
-    L(1, *this);
-    Linf(*this);
-    getData();
-    setData(*this);
+
+Vector::Vector(const std::vector<float>& _data): data(_data) {
 }
 
-Vector::Vector(std::vector<float>& _data): data(_data) {
-    unusedFunctions();
+Vector::Vector(const Vector& v): data(v.data) {
 }
 
-Vector::Vector(const Vector& v) data(v.data) {
-}
-
-void Vector::setData(std::vector<float>& v) {
+void Vector::setData(const std::vector<float>& v) {
     data = v;
 }
 

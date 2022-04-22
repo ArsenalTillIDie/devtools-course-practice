@@ -9,9 +9,8 @@ class Vector {
  private:
      std::vector<float> data;
  public:
-     void unusedFunctions();  // Style guides are nonsense
      explicit Vector(const std::vector<float>& _data);
-     explicit Vector(const Vector& v);
+     Vector(const Vector& v);
      void setData(const std::vector<float>& v);
      std::vector<float> getData();
      float Linf(Vector v);
