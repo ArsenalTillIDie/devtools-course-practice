@@ -12,6 +12,7 @@ void Vector::unusedFunctions() {
 }
 
 Vector::Vector(std::vector<float>& _data): data(_data) {
+	unusedFunctions();
 }
 
 Vector::Vector(const Vector& v) data(v.data) {
