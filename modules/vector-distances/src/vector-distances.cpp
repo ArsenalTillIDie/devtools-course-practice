@@ -38,6 +38,7 @@ float Vector::Linf(Vector v) {
     return maxDistance;
 }
 
+
 float Vector::L(int p, Vector v) {
     if (data.size() != v.data.size()) throw "Vectors are of different sizes";
     float sum = 0;
