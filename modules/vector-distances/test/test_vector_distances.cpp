@@ -58,7 +58,7 @@ TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
     // Act
     float res;
     res = v1.Linf(v2);
-    
+
     // Assert
     EXPECT_NEAR(0.0, res, 0.01);
 }
