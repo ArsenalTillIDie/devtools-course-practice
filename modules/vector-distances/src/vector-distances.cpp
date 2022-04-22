@@ -15,6 +15,11 @@ Vector::Vector(const std::vector<float>& _data): data(_data) {
 Vector::Vector(const Vector& v): data(v.data) {
 }
 
+Vector& Vector::operator=(const Vector& v) {
+    data = v.data;
+    return *this;
+}
+
 void Vector::setData(const std::vector<float>& v) {
     data = v;
 }

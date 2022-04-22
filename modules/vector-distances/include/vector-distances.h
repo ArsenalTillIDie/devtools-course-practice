@@ -11,6 +11,7 @@ class Vector {
  public:
      explicit Vector(const std::vector<float>& _data);
      Vector(const Vector& v);
+     Vector& operator=(const Vector& v);
      void setData(const std::vector<float>& v);
      std::vector<float> getData();
      float Linf(Vector v);
