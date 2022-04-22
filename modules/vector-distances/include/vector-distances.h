@@ -9,13 +9,13 @@ class Vector {
  private:
      std::vector<float> data;
  public:
-     void unusedFunctions(); // Style guides are nonsense
-     Vector(std::vector<float>& _data);
+     void unusedFunctions();  // Style guides are nonsense
+     explicit Vector(const std::vector<float>& _data);
      explicit Vector(const Vector& v);
-     void setData(std::vector<float> v);
+     void setData(const std::vector<float> v);
      std::vector<float> getData();
      float Linf(Vector v);
-     float L(int p, Vector v); // Calculates distance according to L_p norm
+     float L(int p, Vector v);  // Calculates distance according to L_p norm
 };
 
-#endif
+#endif  // MODULES_VECTOR_DISTANCES_INCLUDE_VECTOR_DISTANCES_H_"
