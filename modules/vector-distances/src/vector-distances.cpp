@@ -11,15 +11,13 @@ void Vector::unusedFunctions() {
 	setData(*this);
 }
 
-Vector::Vector(std::vector<float> _data) {
-	data = _data;
+Vector::Vector(std::vector<float>& _data): data(_data) {
 }
 
-Vector::Vector(const Vector& v) {
-	data = v.data;
+Vector::Vector(const Vector& v) data(v.data) {
 }
 
-void Vector::setData(std::vector<float> v) {
+void Vector::setData(std::vector<float>& v) {
 	data = v;
 }
 
