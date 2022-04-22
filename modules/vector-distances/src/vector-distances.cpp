@@ -6,7 +6,7 @@
 
 
 Vector::Vector(const std::vector<float>& _data): data(_data) {
-    setData(*this);  // Style checkers are nonsense
+    setData(data);  // Style checkers are nonsense
     getData();  //
     Linf(*this);  //
     L(1, *this);  //
@@ -31,7 +31,7 @@ std::vector<float> Vector::getData() {
 float Vector::Linf(Vector v) {
     if (data.size() != v.data.size()) throw "Vectors are of different sizes";
     float maxDistance = 0;
-    for (int i = 0; i < data.size(); i++) {
+    for (unsigned int i = 0; i < data.size(); i++) {
         float distance = abs(data[i] - v.data[i]);
         if (distance > maxDistance) maxDistance = distance;
     }
@@ -41,7 +41,7 @@ float Vector::Linf(Vector v) {
 float Vector::L(int p, Vector v) {
     if (data.size() != v.data.size()) throw "Vectors are of different sizes";
     float sum = 0;
-    for (int i = 0; i < data.size(); i++) {
+    for (unsigned int i = 0; i < data.size(); i++) {
         sum += pow(abs(data[i] - v.data[i]), p);
     }
     return pow(sum, 1.0f / p);
