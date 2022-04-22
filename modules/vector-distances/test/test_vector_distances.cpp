@@ -62,7 +62,7 @@ TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
     // Assert
     EXPECT_NEAR(0.0, res, 0.01);
 }
-/*
+
 TEST(Orlov_Maksim_VectorDistanceTest, Linf) {
     // Arrange
     std::vector<float> _v1 = { 1.0, 2.0, 3.0 };
@@ -188,4 +188,3 @@ TEST(Orlov_Maksim_VectorDistanceTest, L4) {
     // Assert
     EXPECT_NEAR(3.146, res, 0.01);
 }
-*/
