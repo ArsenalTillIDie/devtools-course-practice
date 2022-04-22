@@ -12,7 +12,7 @@ class Vector {
      void unusedFunctions();  // Style guides are nonsense
      explicit Vector(const std::vector<float>& _data);
      explicit Vector(const Vector& v);
-     void setData(const std::vector<float> v);
+     void setData(const std::vector<float>& v);
      std::vector<float> getData();
      float Linf(Vector v);
      float L(int p, Vector v);  // Calculates distance according to L_p norm
