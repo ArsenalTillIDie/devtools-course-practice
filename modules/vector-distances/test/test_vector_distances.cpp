@@ -76,6 +76,17 @@ TEST(Orlov_Maksim_VectorDistanceTest,
     ASSERT_ANY_THROW(v1.Linf(v2));
 }
 
+TEST(Orlov_Maksim_VectorDistanceTest, Linf_empty_vectors_throw) {
+    // Arrange
+    std::vector<float> _v1 = { };
+    std::vector<float> _v2 = { };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.Linf(v2));
+}
+
 TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
     // Arrange
     std::vector<float> _v1 = { 1.0, 2.0, 3.0 };
@@ -110,6 +121,17 @@ TEST(Orlov_Maksim_VectorDistanceTest,
     // Arrange
     std::vector<float> _v1 = { 1.0, 2.0, 3.0, 4.0 };
     std::vector<float> _v2 = { 1.0, 2.0, 3.0 };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.L(1, v2));
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest, Lp_empty_vectors_throw) {
+    // Arrange
+    std::vector<float> _v1 = { };
+    std::vector<float> _v2 = { };
     Vector v1(_v1);
     Vector v2(_v2);
 

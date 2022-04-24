@@ -19,4 +19,4 @@ class Vector {
      float L(int p, Vector v);  // Calculates distance according to L_p norm
 };
 
-#endif  // MODULES_VECTOR_DISTANCES_INCLUDE_VECTOR_DISTANCES_H_"
+#endif  // MODULES_VECTOR_DISTANCES_INCLUDE_VECTOR_DISTANCES_H_
