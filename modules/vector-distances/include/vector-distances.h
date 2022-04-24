@@ -6,7 +6,6 @@
 #include <vector>
 
 class Vector {
-    // Why does it want me to cover the bloody class declaration?
  private:
      std::vector<float> data;
  public:
