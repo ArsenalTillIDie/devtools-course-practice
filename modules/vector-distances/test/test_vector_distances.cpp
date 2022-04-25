@@ -10,9 +10,14 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_create_vector) {
 
     // Act
     Vector v(_v);
+    std::vector<float> data;
+    v.getData(&data);
 
     // Assert
-    EXPECT_EQ(v.getData(), _v);
+    ASSERT_EQ(data.size(), _v.size());
+    for (unsigned int i = 0; i < data.size(); ++i) {
+        EXPECT_EQ(data[i], _v[i]);
+    }
 }
 
 TEST(Orlov_Maksim_VectorDistanceTest, can_copy_vector) {
@@ -22,9 +27,15 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_copy_vector) {
     // Act
     Vector v1(_v);
     Vector v2(v1);
+    std::vector<float> data1, data2;
+    v1.getData(&data1);
+    v2.getData(&data2);
 
     // Assert
-    EXPECT_EQ(v2.getData(), v1.getData());
+    ASSERT_EQ(data2.size(), data1.size());
+    for (unsigned int i = 0; i < data2.size(); ++i) {
+        EXPECT_EQ(data2[i], data1[i]);
+    }
 }
 
 TEST(Orlov_Maksim_VectorDistanceTest, can_set_data) {
@@ -34,9 +45,56 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_set_data) {
     // Act
     Vector v1({ 0, 0, 0 });
     v1.setData(_v);
+    std::vector<float> data;
+    v1.getData(&data);
 
     // Assert
-    EXPECT_EQ(v1.getData(), _v);
+    ASSERT_EQ(data.size(), _v.size());
+    for (unsigned int i = 0; i < data.size(); ++i) {
+        EXPECT_EQ(data[i], _v[i]);
+    }
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest, can_assign_vector) {
+    // Arrange
+    std::vector<float> _v = { 1.0, 2.0, 3.0 };
+
+    // Act
+    Vector v1(_v);
+    Vector v2({ 0, 0, 0 });
+    v2 = v1;
+    std::vector<float> data1, data2;
+    v1.getData(&data1);
+    v2.getData(&data2);
+
+    // Assert
+    ASSERT_EQ(data2.size(), data1.size());
+    for (unsigned int i = 0; i < data2.size(); ++i) {
+        EXPECT_EQ(data2[i], data1[i]);
+    }
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest,
+    cant_calculate_Linf_distance_between_vectors_of_different_sizes) {
+    // Arrange
+    std::vector<float> _v1 = { 1.0, 2.0, 3.0, 4.0 };
+    std::vector<float> _v2 = { 1.0, 2.0, 3.0 };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.Linf(v2));
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest, Linf_empty_vectors_throw) {
+    // Arrange
+    std::vector<float> _v1 = { };
+    std::vector<float> _v2 = { };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.Linf(v2));
 }
 
 TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
@@ -47,7 +105,8 @@ TEST(Orlov_Maksim_VectorDistanceTest, Linf_equal) {
     Vector v2(_v2);
 
     // Act
-    float res = v1.Linf(v2);
+    float res;
+    res = v1.Linf(v2);
 
     // Assert
     EXPECT_NEAR(0.0, res, 0.01);
@@ -65,6 +124,29 @@ TEST(Orlov_Maksim_VectorDistanceTest, Linf) {
 
     // Assert
     EXPECT_NEAR(3.0, res, 0.01);
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest,
+    cant_calculate_Lp_distance_between_vectors_of_different_sizes) {
+    // Arrange
+    std::vector<float> _v1 = { 1.0, 2.0, 3.0, 4.0 };
+    std::vector<float> _v2 = { 1.0, 2.0, 3.0 };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.L(1, v2));
+}
+
+TEST(Orlov_Maksim_VectorDistanceTest, Lp_empty_vectors_throw) {
+    // Arrange
+    std::vector<float> _v1 = { };
+    std::vector<float> _v2 = { };
+    Vector v1(_v1);
+    Vector v2(_v2);
+
+    // Assert
+    ASSERT_ANY_THROW(v1.L(1, v2));
 }
 
 TEST(Orlov_Maksim_VectorDistanceTest, L1_equal) {

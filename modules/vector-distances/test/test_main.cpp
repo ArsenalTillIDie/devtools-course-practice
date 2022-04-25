@@ -1,4 +1,4 @@
-// Copyright 2022 Petrova Polina
+// Copyright 2022 Maksim Orlov
 
 #include <gtest/gtest.h>
 

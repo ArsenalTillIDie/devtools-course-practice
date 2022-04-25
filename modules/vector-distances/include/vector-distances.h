@@ -9,12 +9,13 @@ class Vector {
  private:
      std::vector<float> data;
  public:
-     Vector(std::vector<float> _data);
+     explicit Vector(const std::vector<float>& _data);
      Vector(const Vector& v);
-     void setData(std::vector<float> v);
-     std::vector<float> getData();
+     Vector& operator=(const Vector& v);
+     void setData(const std::vector<float>& v);
+     void getData(std::vector<float>* v);
      float Linf(Vector v);
-     float L(int p, Vector v);
+     float L(int p, Vector v);  // Calculates distance according to L_p norm
 };
 
-#endif
+#endif  // MODULES_VECTOR_DISTANCES_INCLUDE_VECTOR_DISTANCES_H_
