@@ -10,11 +10,13 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_create_vector) {
 
     // Act
     Vector v(_v);
+    std::vector<float> data;
+    v.getData(&data);
 
     // Assert
-    ASSERT_EQ(v.getData().size(), _v.size());
-    for (unsigned int i = 0; i < v.getData().size(); ++i) {
-        EXPECT_EQ(v.getData()[i], _v[i]);
+    ASSERT_EQ(data.size(), _v.size());
+    for (unsigned int i = 0; i < data.size(); ++i) {
+        EXPECT_EQ(data[i], _v[i]);
     }
 }
 
@@ -25,11 +27,14 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_copy_vector) {
     // Act
     Vector v1(_v);
     Vector v2(v1);
+    std::vector<float> data1, data2;
+    v1.getData(&data1);
+    v2.getData(&data2);
 
     // Assert
-    ASSERT_EQ(v2.getData().size(), v1.getData().size());
-    for (unsigned int i = 0; i < v2.getData().size(); ++i) {
-        EXPECT_EQ(v2.getData()[i], v1.getData()[i]);
+    ASSERT_EQ(data2.size(), data1.size());
+    for (unsigned int i = 0; i < data2.size(); ++i) {
+        EXPECT_EQ(data2[i], data1[i]);
     }
 }
 
@@ -40,11 +45,13 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_set_data) {
     // Act
     Vector v1({ 0, 0, 0 });
     v1.setData(_v);
+    std::vector<float> data;
+    v1.getData(&data);
 
     // Assert
-    ASSERT_EQ(v1.getData().size(), _v.size());
-    for (unsigned int i = 0; i < v1.getData().size(); ++i) {
-        EXPECT_EQ(v1.getData()[i], _v[i]);
+    ASSERT_EQ(data.size(), _v.size());
+    for (unsigned int i = 0; i < data.size(); ++i) {
+        EXPECT_EQ(data[i], _v[i]);
     }
 }
 
@@ -56,11 +63,14 @@ TEST(Orlov_Maksim_VectorDistanceTest, can_assign_vector) {
     Vector v1(_v);
     Vector v2({ 0, 0, 0 });
     v2 = v1;
+    std::vector<float> data1, data2;
+    v1.getData(&data1);
+    v2.getData(&data2);
 
     // Assert
-    ASSERT_EQ(v2.getData().size(), v1.getData().size());
-    for (unsigned int i = 0; i < v2.getData().size(); ++i) {
-        EXPECT_EQ(v2.getData()[i], v1.getData()[i]);
+    ASSERT_EQ(data2.size(), data1.size());
+    for (unsigned int i = 0; i < data2.size(); ++i) {
+        EXPECT_EQ(data2[i], data1[i]);
     }
 }
 

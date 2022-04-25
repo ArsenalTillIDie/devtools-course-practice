@@ -20,8 +20,8 @@ void Vector::setData(const std::vector<float>& v) {
     data = v;
 }
 
-std::vector<float> Vector::getData() {
-    return data;
+void Vector::getData(std::vector<float>* v) {
+    *v = data;
 }
 
 float Vector::Linf(Vector v) {

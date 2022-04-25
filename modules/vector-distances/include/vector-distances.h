@@ -13,7 +13,7 @@ class Vector {
      Vector(const Vector& v);
      Vector& operator=(const Vector& v);
      void setData(const std::vector<float>& v);
-     std::vector<float> getData();
+     void getData(std::vector<float>* v);
      float Linf(Vector v);
      float L(int p, Vector v);  // Calculates distance according to L_p norm
 };
