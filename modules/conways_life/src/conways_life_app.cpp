@@ -37,8 +37,8 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 
 
 
-std::vector<std::vector<bool>> parseGrid
-(const char* arg, int height, int width) {
+std::vector<std::vector<bool>> parseGrid(const char* arg,
+    int height, int width) {
     std::vector<std::vector<bool>> res;
     int count = 0;
     for (int i = 0; i < height; i++) {
