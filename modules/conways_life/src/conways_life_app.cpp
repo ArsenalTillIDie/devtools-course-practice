@@ -71,10 +71,9 @@ int stringToInt(const char* s) {
     }
     return x;
     */
-    char digit;
-    int count = 0;
     int res = 0;
     for (int i = 0; s[i] != '\0'; i++) {
+        char digit;
         res *= 10;
         digit = s[i];
         if (digit < '0' || digit > '9') throw std::string("Invalid dimensions!");
