@@ -7,18 +7,21 @@
 #include <vector>
 #include <sstream>
 #include <cstdlib>
-#include <tchar.h>
 #include <iostream>
 
 void Application::help(const char* appname, const char* mes) {
     message =
         std::string(mes) +
-        "This application simulates an iteration of John Conway's Game of Life.\n\n" +
+        "This application simulates an iteration\
+        of John Conway's Game of Life.\n\n" +
         "Please provide arguments in the following format:\n" +
 
-        "  $ " + appname + " <grid height> <grid width> <initial pattern bitfield>,\n" +
+        "  $ " + appname + " <grid height>\
+        <grid width> <initial pattern bitfield>,\n" +
 
-        "where the initial pattern bitfield is a string of 0's and 1's corresponding to whether each cell (in the order of left to right, top to bottom) is dead or alive.\n";
+        "where the initial pattern bitfield is a string of 0's and 1's\
+        corresponding to whether each cell (in the order of\
+        left to right, top to bottom) is dead or alive.\n";
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
@@ -42,9 +45,12 @@ std::vector<std::vector<bool>> parseGrid(const char* arg, int height, int width)
         for (int j = 0; j < width; j++) {
             char curr = arg[count];
             if (curr == '\0') throw std::string("Not enough cells!");
-            else if (curr == '0') row.push_back(false);
-            else if (curr == '1') row.push_back(true);
-            else throw std::string("Invalid cell");
+            else
+                if (curr == '0') row.push_back(false);
+            else
+                if (curr == '1') row.push_back(true);
+            else
+                throw std::string("Invalid cell");
             count++;
         }
         res.push_back(row);
@@ -76,7 +82,8 @@ int stringToInt(const char* s) {
         char digit;
         res *= 10;
         digit = s[i];
-        if (digit < '0' || digit > '9') throw std::string("Invalid dimensions!");
+        if (digit < '0' || digit > '9')
+            throw std::string("Invalid dimensions!");
         else res += digit - '0';
     }
     return res;
