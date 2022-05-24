@@ -45,15 +45,17 @@ std::vector<std::vector<bool>> parseGrid
         std::vector<bool> row;
         for (int j = 0; j < width; j++) {
             char curr = arg[count];
-            if (curr == '\0') throw std::string("Not enough cells!");
-            else
-                if (curr == '0') row.push_back(false);
-                else
+            if (curr == '\0') {
+                throw std::string("Not enough cells!");
+            } else {
+                if (curr == '0') {
+                    row.push_back(false);
+                }
+                else {
                     if (curr == '1') row.push_back(true);
                     else
                         throw std::string("Invalid cell");
-                
-            
+                }
             count++;
         }
         res.push_back(row);
