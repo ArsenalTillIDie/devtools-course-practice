@@ -55,7 +55,8 @@ std::vector<std::vector<bool>> parseGrid(const char* arg,
                     else
                         throw std::string("Invalid cell");
                 }
-            count++;
+                count++;
+            }
         }
         res.push_back(row);
     }
