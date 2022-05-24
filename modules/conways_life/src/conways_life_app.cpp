@@ -66,8 +66,8 @@ std::vector<std::vector<bool>> parseGrid(const char* arg,
 
 std::string gridToString(std::vector<std::vector<bool>> grid) {
     std::string res;
-    for (int i = 0; i < grid.size(); i++)
-        for (int j = 0; j < grid[i].size(); j++)
+    for (unsigned int i = 0U; i < grid.size(); i++)
+        for (unsigned int j = 0U; j < grid[i].size(); j++)
             if (grid[i][j]) res.push_back('1');
             else
                 res.push_back('0');
