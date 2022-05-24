@@ -50,8 +50,7 @@ std::vector<std::vector<bool>> parseGrid
             } else {
                 if (curr == '0') {
                     row.push_back(false);
-                }
-                else {
+                } else {
                     if (curr == '1') row.push_back(true);
                     else
                         throw std::string("Invalid cell");
