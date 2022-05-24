@@ -12,7 +12,7 @@
 void Application::help(const char* appname, const char* mes) {
     message =
         std::string(mes) +
-        "This application simulates an iteration" +
+        "This application simulates an iteration " +
         "of John Conway's Game of Life.\n\n" +
         "Please provide arguments in the following format:\n" +
 
