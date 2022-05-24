@@ -12,16 +12,16 @@
 void Application::help(const char* appname, const char* mes) {
     message =
         std::string(mes) +
-        "This application simulates an iteration\
-        of John Conway's Game of Life.\n\n" +
+        "This application simulates an iteration" +
+        "of John Conway's Game of Life.\n\n" +
         "Please provide arguments in the following format:\n" +
 
         "  $ " + appname + " <grid height>\
         <grid width> <initial pattern bitfield>,\n" +
 
-        "where the initial pattern bitfield is a string of 0's and 1's\
-        corresponding to whether each cell (in the order of\
-        left to right, top to bottom) is dead or alive.\n";
+        " where the initial pattern bitfield is a string of 0's and 1's" +
+        "corresponding to whether each cell (in the order of" +
+        "left to right, top to bottom) is dead or alive.\n";
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
@@ -45,12 +45,14 @@ std::vector<std::vector<bool>> parseGrid(const char* arg, int height, int width)
         for (int j = 0; j < width; j++) {
             char curr = arg[count];
             if (curr == '\0') throw std::string("Not enough cells!");
-            else
+            else {
                 if (curr == '0') row.push_back(false);
-            else
-                if (curr == '1') row.push_back(true);
-            else
-                throw std::string("Invalid cell");
+                else {
+                    if (curr == '1') row.push_back(true);
+                    else
+                        throw std::string("Invalid cell");
+                }
+            }
             count++;
         }
         res.push_back(row);
@@ -64,19 +66,12 @@ std::string gridToString(std::vector<std::vector<bool>> grid) {
     for (int i = 0; i < grid.size(); i++)
         for (int j = 0; j < grid[i].size(); j++)
             if (grid[i][j]) res.push_back('1');
-            else res.push_back('0');
+            else
+                res.push_back('0');
     return res;
 }
 
 int stringToInt(const char* s) {
-    /*
-    char* p;
-    int x = strtol(arg, &p, 10);
-    if (*p != 0) {
-        throw std::string "Invalid dimensions!";
-    }
-    return x;
-    */
     int res = 0;
     for (int i = 0; s[i] != '\0'; i++) {
         char digit;
@@ -84,7 +79,8 @@ int stringToInt(const char* s) {
         digit = s[i];
         if (digit < '0' || digit > '9')
             throw std::string("Invalid dimensions!");
-        else res += digit - '0';
+        else
+            res += digit - '0';
     }
     return res;
 }
