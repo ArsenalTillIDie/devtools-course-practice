@@ -16,8 +16,8 @@ void Application::help(const char* appname, const char* mes) {
         "of John Conway's Game of Life.\n\n" +
         "Please provide arguments in the following format:\n" +
 
-        "  $ " + appname + " <grid height>\
-        <grid width> <initial pattern bitfield>,\n" +
+        "  $ " + appname + " <grid height>" +
+        " <grid width> <initial pattern bitfield>,\n" +
 
         " where the initial pattern bitfield is a string of 0's and 1's" +
         "corresponding to whether each cell (in the order of" +
@@ -37,7 +37,8 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
 
 
 
-std::vector<std::vector<bool>> parseGrid(const char* arg, int height, int width) {
+std::vector<std::vector<bool>> parseGrid
+(const char* arg, int height, int width) {
     std::vector<std::vector<bool>> res;
     int count = 0;
     for (int i = 0; i < height; i++) {
@@ -45,14 +46,14 @@ std::vector<std::vector<bool>> parseGrid(const char* arg, int height, int width)
         for (int j = 0; j < width; j++) {
             char curr = arg[count];
             if (curr == '\0') throw std::string("Not enough cells!");
-            else {
+            else
                 if (curr == '0') row.push_back(false);
-                else {
+                else
                     if (curr == '1') row.push_back(true);
                     else
                         throw std::string("Invalid cell");
-                }
-            }
+                
+            
             count++;
         }
         res.push_back(row);
